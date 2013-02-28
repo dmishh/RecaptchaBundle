@@ -16,6 +16,7 @@
         "symfony/framework-bundle": "~2.1",
         "dmishh/recaptcher": "dev-master"
     },
+    "minimum-stability": "dev",
     "autoload": {
         "psr-0": { "": "src/" }
     }
