@@ -14,9 +14,8 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.1",
-        "dmishh/recaptcher": "dev-master"
+        "dmishh/recaptcher": "dev-master@dev"
     },
-    "minimum-stability": "dev",
     "autoload": {
         "psr-0": { "": "src/" }
     }
