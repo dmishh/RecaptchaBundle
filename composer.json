@@ -1,0 +1,21 @@
+{
+    "name": "dmishh/recaptcha-bundle",
+    "description": "reCAPTCHA support in Symfony2 with easy-to-use integration in authentication.",
+    "keywords": ["symfony2", "bundle", "recaptcha"],
+    "homepage": "https://github.com/dmishh/RecaptchaBundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitriy Scherbina",
+            "homepage": "http://dmishh.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.1"
+    },
+    "autoload": {
+        "psr-0": { "": "src/" }
+    }
+}

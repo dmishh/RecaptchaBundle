@@ -1,0 +1,15 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block form_label %}
+    {% if 'recaptcha' in id %}
+        {% set label_attr = label_attr|merge({'for': 'recaptcha_response_field'}) %}
+    {% endif %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block recaptcha_widget %}
+    {% spaceless %}
+        {{ recaptcha.widgetHtml|raw }}
+    {% endspaceless %}
+{% endblock %}
