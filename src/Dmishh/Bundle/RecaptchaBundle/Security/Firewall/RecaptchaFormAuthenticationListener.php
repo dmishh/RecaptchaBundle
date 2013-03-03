@@ -109,8 +109,8 @@ class RecaptchaFormAuthenticationListener extends AbstractAuthenticationListener
             try {
                 if (true !== $this->recaptcha->checkAnswer(
                     $request->server->get('REMOTE_ADDR'),
-                    $request->get($this->options['recaptcha_challenge_parameter']),
-                    $request->get($this->options['recaptcha_response_parameter']))
+                    $request->get($this->recaptcha->getChallengeField()),
+                    $request->get($this->recaptcha->getResponseField()))
                 ) {
                     throw new Exception('Invalid captcha.');
                 }
