@@ -10,6 +10,6 @@
 
 {% block recaptcha_widget %}
     {% spaceless %}
-        {{ recaptcha.widgetHtml|raw }}
+        {{ recaptcha.getWidgetHtml(widget_options)|raw }}
     {% endspaceless %}
 {% endblock %}

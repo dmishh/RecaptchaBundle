@@ -1,1 +1,1 @@
-<?php echo $recaptcha->getWidgetHtml();
+<?php echo $recaptcha->getWidgetHtml($widget_options);

@@ -1,7 +1,7 @@
 services:
     recaptcha:
         class: Recaptcher\Recaptcha
-        arguments: [%recaptcha_public_key%, %recaptcha_private_key%]
+        arguments: [%recaptcha.public_key%, %recaptcha.private_key%, %recaptcha.use_https%]
 
     form.type.recaptcha:
         class: Dmishh\Bundle\RecaptchaBundle\Form\Type\RecaptchaType

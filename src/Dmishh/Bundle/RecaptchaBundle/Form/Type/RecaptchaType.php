@@ -40,11 +40,14 @@ class RecaptchaType extends AbstractType
     {
         parent::setDefaultOptions($resolver);
 
+        $resolver->setOptional(array('widget_options'));
+        $resolver->setAllowedTypes(array('widget_options' => 'array'));
         $resolver->setDefaults(
             array(
-                 'mapped' => false,
-                 'error_bubbling' => false,
-                 'constraints' => new Constraints\Recaptcha()
+                'mapped' => false,
+                'error_bubbling' => false,
+                'constraints' => new Constraints\Recaptcha(),
+                'widget_options' => array()
             )
         );
     }
@@ -54,7 +57,13 @@ class RecaptchaType extends AbstractType
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $view->vars = array_replace($view->vars, array('recaptcha' => $this->recaptcha));
+        $view->vars = array_replace(
+            $view->vars,
+            array(
+                'recaptcha' => $this->recaptcha,
+                'widget_options' => $options['widget_options']
+            )
+        );
     }
 
     /**
