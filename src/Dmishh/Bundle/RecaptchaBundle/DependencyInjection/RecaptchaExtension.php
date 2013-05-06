@@ -40,10 +40,10 @@ class RecaptchaExtension extends Extension
      */
     private function registerResources(ContainerBuilder $container)
     {
-        $templateEngines = $container->getParameter('templating.engines');
+        $templatingEngines = $container->getParameter('templating.engines');
 
         // PHP
-        if (in_array('php', $templateEngines)) {
+        if (in_array('php', $templatingEngines)) {
             $container->setParameter(
                 'templating.helper.form.resources',
                 array_merge(
@@ -54,7 +54,7 @@ class RecaptchaExtension extends Extension
         }
 
         // Twig
-        if (in_array('twig', $templateEngines)) {
+        if (in_array('twig', $templatingEngines)) {
             $container->setParameter(
                 'twig.form.resources',
                 array_merge(
