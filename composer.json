@@ -13,7 +13,9 @@
     ],
     "require": {
         "symfony/framework-bundle": "~2.1",
+        "symfony/security": "~2.1",
         "symfony/form": "~2.1",
+        "symfony/validator": "~2.1",
         "dmishh/recaptcher": "1.0.*"
     },
     "minimum-stability": "dev",

@@ -11,8 +11,9 @@
  */
 namespace Dmishh\Bundle\RecaptchaBundle\Security\Firewall;
 
-use Recaptcher\Exception\Exception;
 use Recaptcher\RecaptchaInterface;
+use Recaptcher\Exception\Exception;
+use Recaptcher\Exception\InvalidRecaptchaException;
 use Symfony\Component\Form\Extension\Csrf\CsrfProvider\CsrfProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
@@ -112,7 +113,7 @@ class RecaptchaFormAuthenticationListener extends AbstractAuthenticationListener
                     $request->get($this->recaptcha->getChallengeField()),
                     $request->get($this->recaptcha->getResponseField()))
                 ) {
-                    throw new Exception('Invalid captcha.');
+                    throw new InvalidRecaptchaException('Invalid captcha.');
                 }
             } catch (Exception $e) {
                 throw new AuthenticationException('Invalid captcha.', null, null, $e);

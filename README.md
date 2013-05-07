@@ -174,5 +174,4 @@ public function yourAction(Request $request) {
 **NOTE:** this documentation is based on [EWZRecaptchaBundle's docs](https://github.com/excelwebzone/EWZRecaptchaBundle).
 
 **TODO:**
-* Add version for Symfony 2.0
 * Add docs about manual installation and usage reCAPTCHA with ajax
