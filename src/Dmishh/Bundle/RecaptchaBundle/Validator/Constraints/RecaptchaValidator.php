@@ -10,7 +10,6 @@
 namespace Dmishh\Bundle\RecaptchaBundle\Validator\Constraints;
 
 use Recaptcher\Exception\Exception;
-use Recaptcher\Recaptcha;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraint;
@@ -34,7 +33,7 @@ class RecaptchaValidator extends ConstraintValidator
      * @param \Recaptcher\Recaptcha $recaptcha
      * @param \Symfony\Component\HttpFoundation\Request $request
      */
-    public function __construct(Recaptcha $recaptcha, Request $request)
+    public function __construct(\Recaptcher\Recaptcha $recaptcha, Request $request)
     {
         $this->recaptcha = $recaptcha;
         $this->request = $request;
@@ -46,14 +45,13 @@ class RecaptchaValidator extends ConstraintValidator
     public function validate($value, Constraint $constraint)
     {
         try {
-            return $this->recaptcha->checkAnswer(
+            $this->recaptcha->checkAnswer(
                 $this->request->server->get('REMOTE_ADDR'),
-                $this->request->get(Recaptcha::CHALLANGE_FIELD),
-                $this->request->get(Recaptcha::RESPONSE_FIELD)
+                $this->request->get($this->recaptcha->getChallengeField()),
+                $this->request->get($this->recaptcha->getResponseField())
             );
         } catch (Exception $e) {
             $this->context->addViolation($constraint->message);
-            return false;
         }
     }
 }
