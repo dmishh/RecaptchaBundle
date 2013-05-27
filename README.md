@@ -92,7 +92,7 @@ public function buildForm(FormBuilder $builder, array $options)
 
 List of valid options:
 * theme
-* lang (there is an [issue](https://groups.google.com/forum/?fromgroups=#!topic/recaptcha/o-YdYJlnRVM) in reCAPTCHA with this option)
+* lang
 * custom_translations
 * custom_theme_widget
 * tabindex
@@ -102,7 +102,8 @@ Visit [Customizing the Look and Feel of reCAPTCHA](https://developers.google.com
 ### Validation
 
 `RecaptchaType` has built-in validator, you don't need to do anything more. Just use it!
-But if you need to disable validation for some reasons, then remove existing validator:
+
+But if you need to **disable** validation for some reasons, then remove existing validator:
 
 ``` php
 <?php
@@ -113,6 +114,7 @@ public function buildForm(FormBuilder $builder, array $options)
 {
     // ...
     $builder->add('recaptcha', 'recaptcha', array(
+        // only for disabling validation
         'constraints'   => array()
     ));
 }
@@ -134,7 +136,7 @@ security.authentication.listener.form:
 ```
 
 Second parameter in *setRecaptcha* method is used for disabling validator.
-This might be useful when you need to disable check in dev environment. Ex.:
+This might be useful when you need to disable check in dev environment. For example:
 
 ``` yaml
 security.authentication.listener.form:
