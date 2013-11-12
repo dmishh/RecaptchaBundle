@@ -34,7 +34,7 @@
 
     ```php
     <?php
-    
+
     // in AppKernel::registerBundles()
     $bundles = array(
         // ...
@@ -162,7 +162,7 @@ public function yourAction(Request $request) {
 
     return array(
         // ...
-        'recaptcha' => $recaptcha
+        'recaptcha' => $recaptcha->createView()
     );
 }
 ```
