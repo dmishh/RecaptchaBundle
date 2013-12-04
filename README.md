@@ -177,9 +177,9 @@ This documentation is based on [EWZRecaptchaBundle's docs](https://github.com/ex
 
 ### Roadmap
 
-#### 1.0.* (dev)
+#### 1.0.* (TODO)
 
-* Docs about manual installation and usage reCAPTCHA with ajax
+* Add docs about manual installation and usage reCAPTCHA with ajax
 
 #### 1.0
 
