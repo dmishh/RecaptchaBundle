@@ -5,7 +5,7 @@
 * Easy-to-use
 * Service-oriented architecture
 * Integration into forms
-* Integration into Security Component — for authentication user via login form with reCAPTCHA
+* Integration into Security Component — for protecting login form with reCAPTCHA
 * Independent reCAPTCHA API realization ([Recaptcher](https://github.com/dmishh/Recaptcher) by default)
 * Both, PHP and Twig template engines support
 
@@ -173,7 +173,14 @@ public function yourAction(Request $request) {
 {{ form_widget(recaptcha) }}
 ```
 
-**NOTE:** this documentation is based on [EWZRecaptchaBundle's docs](https://github.com/excelwebzone/EWZRecaptchaBundle).
+This documentation is based on [EWZRecaptchaBundle's docs](https://github.com/excelwebzone/EWZRecaptchaBundle).
 
-**TODO:**
-* Add docs about manual installation and usage reCAPTCHA with ajax
+### Roadmap
+
+#### 1.0.* (dev)
+
+* Docs about manual installation and usage reCAPTCHA with ajax
+
+#### 1.0
+
+* Initial version
