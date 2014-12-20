@@ -31,37 +31,5 @@ class RecaptchaExtension extends Extension
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
-
-        $this->registerResources($container);
-    }
-
-    /**
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
-     */
-    private function registerResources(ContainerBuilder $container)
-    {
-        $templatingEngines = $container->getParameter('templating.engines');
-
-        // PHP
-        if (in_array('php', $templatingEngines)) {
-            $container->setParameter(
-                'templating.helper.form.resources',
-                array_merge(
-                    $container->getParameter('templating.helper.form.resources'),
-                    array('RecaptchaBundle:Form')
-                )
-            );
-        }
-
-        // Twig
-        if (in_array('twig', $templatingEngines)) {
-            $container->setParameter(
-                'twig.form.resources',
-                array_merge(
-                    $container->getParameter('twig.form.resources'),
-                    array('RecaptchaBundle:Form:recaptcha_widget.html.twig')
-                )
-            );
-        }
     }
 }
